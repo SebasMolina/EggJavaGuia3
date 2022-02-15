@@ -14,6 +14,11 @@ Nota: encontrarán en Moodle un ejemplo de una Colección como Atributo.
 */
 package sistema;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  *
  * @author Sebas
@@ -22,10 +27,25 @@ public class Sistema {
 
     public static void main(String[] args) {
         // Ejercicio 3
+        Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n").useLocale(Locale.US);
+        AlumnoService listaDeAlumnos = new AlumnoService();
         
-        
-        
-        
+        //ArrayList<Alumno> listaAlumnos= new ArrayList<>();
+        //Iterator <Alumno> iterator = listaAlumnos.iterator();
+        String termina="";
+        //double nota;
+        Alumno unAlumno = new Alumno();
+        do{
+            listaDeAlumnos.crearAlumno();
+            System.out.print("Quiere agregar otro alumno? S/N: ");
+            termina = leer.next();
+        } while (termina.equalsIgnoreCase("s")); 
+        listaDeAlumnos.imprimirLista();
+        /*
+        while (busqueda.hasNext()){
+            if(busqueda<Alumno>.g)
+        }
+        */
     }
     
 }
