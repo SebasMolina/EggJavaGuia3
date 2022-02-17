@@ -20,6 +20,9 @@ en pantalla.
 */
 package sistema;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  *
  * @author Sebas
@@ -28,11 +31,27 @@ public class Sistema {
 
     public static void main(String[] args) {
         // Ejercicio 4
-        
-        
-        
-        
-        
+        PeliculaService lista = new PeliculaService();
+        String termino= "";
+        Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n").useLocale(Locale.US);
+        do{
+            System.out.println("Pelicula-----------------");
+            lista.crearPelicula();
+            System.out.print("Desea ingresar otra pelicula? S/N: ");
+            termino = leer.next();
+        } while (termino.equalsIgnoreCase("s"));
+        System.out.println("Lista Completa-----------------");
+        lista.imprimirLista();
+        System.out.println("Lista con mas de 1 hr--------------------------");
+        lista.imprimirListaUnaHora();
+        System.out.println("Lista duracion menor a mayor--------------------------");
+        lista.ordenarPorDuracionMenorAMayor();
+        System.out.println("Lista duracion mayor a menor--------------------------");
+        lista.ordenarPorDuracionMayorAMenor();
+        System.out.println("Lista ordenada por director--------------------------");
+        lista.ordenarPorDirector();
+        System.out.println("Lista ordenada por titulo--------------------------");
+        lista.ordenarPorTitulo();
     }
     
 }

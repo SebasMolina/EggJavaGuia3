@@ -28,24 +28,23 @@ public class Sistema {
     public static void main(String[] args) {
         // Ejercicio 3
         Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n").useLocale(Locale.US);
-        AlumnoService listaDeAlumnos = new AlumnoService();
-        
-        //ArrayList<Alumno> listaAlumnos= new ArrayList<>();
-        //Iterator <Alumno> iterator = listaAlumnos.iterator();
+        AlumnoService listaDeAlumnos = new AlumnoService();        
         String termina="";
-        //double nota;
         Alumno unAlumno = new Alumno();
         do{
-            listaDeAlumnos.crearAlumno();
+            
+            listaDeAlumnos.pedirInformacion();
             System.out.print("Quiere agregar otro alumno? S/N: ");
             termina = leer.next();
-        } while (termina.equalsIgnoreCase("s")); 
+        } while (termina.equalsIgnoreCase("s"));
+        System.out.println("Es Hora de saber la nota final");
+        termina="";
+        do{
+            unAlumno = listaDeAlumnos.encontrarNombre();
+            System.out.print("Quiere buscar otro alumno? S/N: ");
+            termina = leer.next();
+        } while(termina.equalsIgnoreCase("s"));
         listaDeAlumnos.imprimirLista();
-        /*
-        while (busqueda.hasNext()){
-            if(busqueda<Alumno>.g)
-        }
-        */
     }
     
 }
